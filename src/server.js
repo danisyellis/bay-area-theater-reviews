@@ -1,7 +1,7 @@
 const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
-const db = require('./db')
+const db = require('./models/db')
 
 const port = process.env.PORT || 3000
 
@@ -15,14 +15,11 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended: false}))
 
 app.get('/', (req, res) => {
-  db.getAlbums((error, albums) => {
-    if (error) {
-      res.status(500).render('error', {error})
-    } else {
-      res.render('index', {albums})
-    }
-  })
-})
+  db.getAlbums()
+  .then(albums => {
+    res.render('index', {albums});
+  }).catch(err => {console.error("Error:", err);});
+});
 
 app.get('/albums/:albumID', (req, res) => {
   const albumID = req.params.albumID
