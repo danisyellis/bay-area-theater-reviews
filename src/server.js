@@ -18,26 +18,23 @@ app.get('/', (req, res) => {
   db.getAlbums()
   .then(albums => {
     res.render('index', {albums});
-  }).catch(err => {console.error("Error:", err);});
+  })
+  .catch(err => {console.error("Error:", err);});
 });
 
-app.get('/albums/:albumID', (req, res) => {
-  const albumID = req.params.albumID
-
-  db.getAlbumsByID(albumID, (error, albums) => {
-    if (error) {
-      res.status(500).render('error', {error})
-    } else {
-      const album = albums[0]
-      res.render('album', {album})
-    }
+app.get('/albums/:albumId', (req, res) => {
+  const albumId = req.params.albumId;
+  db.getAlbumsById(albumId)
+  .then(album => {
+    res.render('album', {album});
   })
-})
+  .catch(err => {console.error("Error:", err);});
+});
 
 app.use((req, res) => {
-  res.status(404).render('not_found')
-})
+  res.status(404).render('not_found');
+});
 
 app.listen(port, () => {
-  console.log(`Listening on http://localhost:${port}...`)
-})
+  console.log(`Listening on http://localhost:${port}...`);
+});

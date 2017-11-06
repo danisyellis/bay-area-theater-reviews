@@ -15,16 +15,26 @@ db.connect()
 function getAlbums() {
   return db.any(`
     SELECT * FROM albums`)
-  .catch(err => {console.log("Error: ", err);});
+  .catch(err => {
+    console.log("Error: ", err);
+    throw err;
+  });
 }
 
-function getAlbumsByID(albumID, cb) {
-  _query('SELECT * FROM albums WHERE id = $1', [albumID], cb);
+function getAlbumsById(albumId) {
+  return db.oneOrNone(`
+    SELECT * FROM albums
+    WHERE id = $1
+  `, [albumId])
+  .catch(err => {
+    console.log("Error: ", err);
+    throw err;
+  });
 }
 
 
 
 module.exports = {
   getAlbums,
-  getAlbumsByID,
+  getAlbumsById,
 };
