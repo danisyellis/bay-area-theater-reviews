@@ -19,14 +19,16 @@ html, body {
 hr {
   margin-bottom: 0;
 }
-
 .vinylPic {
   width: 100%;
   height: 300px;
 }
 
 
-
+.auth-form-labels {
+  text-align: right;
+  margin-right: 10px;
+}
 
 
 /*Reusable classes*/
