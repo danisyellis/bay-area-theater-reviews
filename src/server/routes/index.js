@@ -5,6 +5,7 @@ const auth = require('./auth');
 const albums = require('./albums');
 //const users = require('./users');
 //const reviews = require('./reviews');
+const {isLoggedIn} = require('../authUtils');
 
 router.get('/', (req, res) => {
   db.getAlbums()
@@ -16,6 +17,7 @@ router.get('/', (req, res) => {
 
 router.use('/', auth);
 router.use('/albums', albums);
+router.use(isLoggedIn);
 //router.use('/users', users);
 
 module.exports = router;

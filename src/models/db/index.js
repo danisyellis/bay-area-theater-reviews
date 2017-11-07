@@ -37,4 +37,5 @@ function getAlbumsById(albumId) {
 module.exports = {
   getAlbums,
   getAlbumsById,
+  db
 };

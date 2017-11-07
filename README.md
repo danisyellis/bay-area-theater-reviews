@@ -2,25 +2,12 @@
 
 A community for record enthusiasts to review their favorite albums.
 
-Part of the application has already been built for you. Your job is to take it to completion.
-
 ## Getting Started
 
-Run `$ npm run` to see the list of commands available. To see what each command does, look at `package.json`.
-
-The app uses a basic Express file structure, and includes SQL files to set up the schema and import data.
-
-```sh
-src/
-  albums.sql          # seed album data
-  database.js         # database connection and queries
-  package.json        # npm standard
-  public/             # static assets go here
-  README.md           # you are here
-  schema.sql          # define database schema here
-  server.js           # web server
-  views/              # html templates go here
-```
+Create a .env file and put into it:
+1. The port number, probably: `PORT = 3000`
+1. The database url, probably: `DATABASE_URL = 'postgres://localhost:5432/${dbName}` where dbName is the name of your db
+1. The SECRET for your sessions
 
 ### Setting Up Your Database
 
@@ -29,3 +16,6 @@ Use the following commands to set up and seed your database:
 1. Create PostgreSQL database `vinyl`: `$ npm run db:create`
 1. Set up database tables from `schema.sql`: `$ npm run db:schema`
 1. Load seed data from `albums.sql`: `$ npm run db:seed`
+1. Create a table to store session data: `$npm run db:session:setup`
+
+After this initial setup, you can use the `$npm run db:reset` command to reset your database.

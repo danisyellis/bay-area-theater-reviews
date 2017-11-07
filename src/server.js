@@ -19,7 +19,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
 
-
+app.use((req, res, next) => {
+  //res.locals.query = "";   only need this if I implement search using the variable query
+  res.locals.isLoggedIn = false;
+  res.locals.user = "";
+  next();
+});
 
 app.use(session({
   store: new pgSession({
