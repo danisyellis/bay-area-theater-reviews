@@ -10,11 +10,10 @@
   <h1>Reviews</h1>
   <%reviews.forEach(function(review, i) {%>
     <p>
-      <%-review.user_id%>
+      <%-review.title%>
       <%-formattedDates[i]%>
       <%-review.content%>
-      <button><img src="/trashCan.svg" height="20" class="trashCan"></button>
-      <img src="/trashCan.svg" height="20" class="trashCan">
+      <a href="/albums/<%= review.album_id %>/reviews/<%= review.id %>"><img src="/trashCan.svg" height="20" class="trashCan"></a>
     </p>
   <%})%>
 </div>

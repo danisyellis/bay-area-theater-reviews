@@ -26,8 +26,10 @@ const getById = id => {
 const getByAlbumId = albumId => {
   return db.any(`
     SELECT * FROM reviews
+    JOIN users
+    ON reviews.user_id = users.id
     WHERE album_id = $1
-    ORDER BY id DESC
+    ORDER BY reviews.id DESC
   `, albumId)
   .catch(error => {
   console.error(error.message);
@@ -37,9 +39,11 @@ const getByAlbumId = albumId => {
 
 const getByUserId = userId => {
   return db.any(`
-    SELECT * FROM reviews
+    SELECT * FROM albums
+    JOIN reviews
+    ON reviews.album_id = albums.id
     WHERE user_id = $1
-    ORDER BY id DESC
+    ORDER BY reviews.id DESC
   `, userId)
   .catch(error => {
   console.error(error.message);
@@ -50,9 +54,25 @@ const getByUserId = userId => {
 const find3MostRecent = () => {
   return db.any(`
     SELECT * FROM reviews
-    ORDER BY id DESC
+    JOIN users
+      ON reviews.user_id = users.id
+    JOIN albums
+      ON reviews.album_id = albums.id
+    ORDER BY reviews.id DESC
     LIMIT 3
   `)
+  .catch(error => {
+  console.error(error.message);
+  throw error;
+  });
+};
+
+const destroy = (reviewId) => {
+  console.log("review Id =",reviewId);
+  return db.none(`
+    DELETE from reviews
+    WHERE id = $1
+  `, [reviewId])
   .catch(error => {
   console.error(error.message);
   throw error;
@@ -64,5 +84,6 @@ module.exports = {
   getById,
   getByAlbumId,
   getByUserId,
-  find3MostRecent
+  find3MostRecent,
+  destroy
 };

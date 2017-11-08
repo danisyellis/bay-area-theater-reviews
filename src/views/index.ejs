@@ -22,13 +22,13 @@
         <% reviews.forEach(function(review, i) { %>
           <div>
             <div>
-              <h4><%=review.album_id%></h4>
+              <h4><%=review.title%></h4>
               <h5><%=formattedDates[i]%></h5>
             </div>
             <p>
               <%=review.content%>
             </p>
-              <em>by <%= review.user_id %></em>
+              <em>by <%= review.name %></em>
           </div>
         <%})%>
       </div>

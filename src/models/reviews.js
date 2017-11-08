@@ -20,10 +20,15 @@ const find3MostRecent = () => {
   return db.find3MostRecent();
 };
 
+const destroy = (reviewId) => {
+  return db.destroy(reviewId);
+};
+
 module.exports = {
   create,
   getById,
   getByAlbumId,
   getByUserId,
-  find3MostRecent
+  find3MostRecent,
+  destroy
 };
