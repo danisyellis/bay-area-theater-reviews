@@ -21,7 +21,7 @@ function getAlbums() {
   });
 }
 
-function getAlbumsById(albumId) {
+function getAlbumById(albumId) {
   return db.oneOrNone(`
     SELECT * FROM albums
     WHERE id = $1
@@ -36,6 +36,6 @@ function getAlbumsById(albumId) {
 
 module.exports = {
   getAlbums,
-  getAlbumsById,
+  getAlbumById,
   db
 };
