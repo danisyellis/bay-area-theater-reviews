@@ -32,7 +32,7 @@ router.post(`/albums/:albumId/reviews/new`, (req, res) => {
 router.get('/albums/:albumId/reviews/:reviewId', (req, res) => {
   Reviews.destroy(req.params.reviewId)
   .then(() => {
-    res.send("I did it");
+    res.redirect("/");
   });
 });
 

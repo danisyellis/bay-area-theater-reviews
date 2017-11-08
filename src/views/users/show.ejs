@@ -7,13 +7,13 @@
 </div>
 
 <div>
-  <h1>Reviews</h1>
+  <h1 id="review">Reviews</h1>
   <%reviews.forEach(function(review, i) {%>
     <p>
       <%-review.title%>
       <%-formattedDates[i]%>
       <%-review.content%>
-      <a href="/albums/<%= review.album_id %>/reviews/<%= review.id %>"><img src="/trashCan.svg" height="20" class="trashCan"></a>
+      <img src="/trashCan.svg" height="20" class="delete" data-review-id='<%= review.id %>' data-album-id='<%= review.album_id %>'>
     </p>
   <%})%>
 </div>

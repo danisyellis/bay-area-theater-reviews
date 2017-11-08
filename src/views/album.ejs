@@ -8,8 +8,6 @@
       <a href="<%=album.id%>/reviews/new"><button>Add Review</button></a>
     </div>
 
-      <%# TODO: fix review.user_id to be the reviewer's name%>
-
     <div>
       <% reviews.forEach(function(review, i) { %>
         <div>
@@ -19,6 +17,9 @@
           </div>
           <p>
             <%=review.content%>
+            <%if (user.id === review.user_id) {%>
+                  <img src="/trashCan.svg" height="20" class="delete" data-review-id='<%= review.id %>' data-album-id='<%= review.album_id %>'>
+              <% }%>
           </p>
             <em>by <%= review.name %></em>
         </div>
