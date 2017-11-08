@@ -13,10 +13,11 @@ const createSession = (req, res, user) => {
   req.session.user = user;
 };
 
-const isLoggedIn = () => {
+const isLoggedIn = (req, res, next) => {
   //is there a user?
     //if no, redirect to login
-    //if yes, res.locals.isLoggedIn = false and set res.locals.user, then next()
+    //if yes, res.locals.isLoggedIn = false and set res.locals.user, then
+   next();
 };
 
 module.exports = {

@@ -12,6 +12,30 @@ const create = ((name, email, password) => {
   });
 });
 
+const getById = id => {
+  return db.oneOrNone(`
+    SELECT * FROM users
+    WHERE id = $1
+  `, id)
+  .catch(error => {
+  console.error(error.message);
+  throw error;
+  });
+};
+
+const getByEmail = (email) => {
+  return db.oneOrNone(`
+    SELECT * FROM users
+    WHERE email = $1
+  `, [email])
+  .catch(error => {
+  console.error(error.message);
+  throw error;
+  });
+};
+
 module.exports = {
-  create
+  create,
+  getById,
+  getByEmail
 };
