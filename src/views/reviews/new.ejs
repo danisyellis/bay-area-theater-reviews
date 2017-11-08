@@ -1,0 +1,16 @@
+<%- include ../partials/layout.ejs %>
+
+<div class="newReviewPage center">
+
+  <h1>New Review For "<%-album.title%>"</h1>
+
+  <form action="/albums/<%= album.id %>/reviews/new" id="newReviewForm" method="post">
+      <textarea cols="60" rows ="10" name="newReview" form="newReviewForm" required></textarea>
+     <div>
+       <button type="submit" name="button"> Submit </button>
+     </div>
+  </form>
+
+</div>
+
+<%- include ../partials/footer.ejs %>

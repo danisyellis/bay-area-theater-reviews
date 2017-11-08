@@ -1,5 +1,5 @@
 CREATE TABLE albums (
-  id SERIAL,
+  id SERIAL primary key,
   title VARCHAR(255) NOT NULL,
   artist VARCHAR(255) NOT NULL
 );
