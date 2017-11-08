@@ -6,6 +6,17 @@
   <p><%-user.date_joined%></p>
 </div>
 
-
+<div>
+  <h1>Reviews</h1>
+  <%reviews.forEach(function(review, i) {%>
+    <p>
+      <%-review.user_id%>
+      <%-formattedDates[i]%>
+      <%-review.content%>
+      <button><img src="/trashCan.svg" height="20" class="trashCan"></button>
+      <img src="/trashCan.svg" height="20" class="trashCan">
+    </p>
+  <%})%>
+</div>
 
 <%- include ../partials/footer.ejs %>

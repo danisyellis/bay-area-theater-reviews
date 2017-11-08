@@ -12,8 +12,18 @@ const getByAlbumId = (albumId) => {
   return db.getByAlbumId(albumId);
 };
 
+const getByUserId = (albumId) => {
+  return db.getByUserId(albumId);
+};
+
+const find3MostRecent = () => {
+  return db.find3MostRecent();
+};
+
 module.exports = {
   create,
   getById,
-  getByAlbumId
+  getByAlbumId,
+  getByUserId,
+  find3MostRecent
 };

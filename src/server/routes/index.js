@@ -1,11 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../../models/db');
+const Reviews = require('../../models/reviews');
 const auth = require('./auth');
 const albums = require('./albums');
 const users = require('./users');
 const reviews = require('./reviews');
 const {isLoggedIn} = require('../authUtils');
+const utils = require('../utils');
+
 
 router.get('/', (req, res) => {
   if(req.session.user) {
@@ -14,7 +17,11 @@ router.get('/', (req, res) => {
   }
   db.getAlbums()
   .then(albums => {
-    res.render('index', {albums});
+    Reviews.find3MostRecent()
+    .then(reviews => {
+      const formattedDates = utils.shortenDatesInArray(reviews);
+      res.render('index', {albums, reviews, formattedDates});
+    });
   })
   .catch(err => {console.error("Error:", err);});
 });

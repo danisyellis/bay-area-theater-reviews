@@ -27,7 +27,32 @@ const getByAlbumId = albumId => {
   return db.any(`
     SELECT * FROM reviews
     WHERE album_id = $1
+    ORDER BY id DESC
   `, albumId)
+  .catch(error => {
+  console.error(error.message);
+  throw error;
+  });
+};
+
+const getByUserId = userId => {
+  return db.any(`
+    SELECT * FROM reviews
+    WHERE user_id = $1
+    ORDER BY id DESC
+  `, userId)
+  .catch(error => {
+  console.error(error.message);
+  throw error;
+  });
+};
+
+const find3MostRecent = () => {
+  return db.any(`
+    SELECT * FROM reviews
+    ORDER BY id DESC
+    LIMIT 3
+  `)
   .catch(error => {
   console.error(error.message);
   throw error;
@@ -37,5 +62,7 @@ const getByAlbumId = albumId => {
 module.exports = {
   create,
   getById,
-  getByAlbumId
+  getByAlbumId,
+  getByUserId,
+  find3MostRecent
 };
