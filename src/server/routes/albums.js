@@ -4,6 +4,10 @@ const db = require('../../models/db');
 
 
 router.get('/:albumId', (req, res) => {
+  if(req.session.user) {
+    res.locals.isLoggedIn = true;
+    res.locals.user = req.session.user;
+  }
   const albumId = req.params.albumId;
   db.getAlbumsById(albumId)
   .then(album => {

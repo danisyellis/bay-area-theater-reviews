@@ -8,6 +8,10 @@ const users = require('./users');
 const {isLoggedIn} = require('../authUtils');
 
 router.get('/', (req, res) => {
+  if(req.session.user) {
+    res.locals.isLoggedIn = true;
+    res.locals.user = req.session.user;
+  }
   db.getAlbums()
   .then(albums => {
     res.render('index', {albums});

@@ -35,6 +35,7 @@ app.use(session({
   saveUninitialized: false,
   cookie: {maxAge: 1 * 24 * 60 * 60 * 1000}
 }));
+
 app.use('/',routes);
 
 app.use((req, res) => {
