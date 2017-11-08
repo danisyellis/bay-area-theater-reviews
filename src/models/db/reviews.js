@@ -25,8 +25,8 @@ const getById = id => {
 
 const getByAlbumId = albumId => {
   return db.any(`
-    SELECT * FROM reviews
-    JOIN users
+    SELECT * FROM users
+    JOIN reviews
     ON reviews.user_id = users.id
     WHERE album_id = $1
     ORDER BY reviews.id DESC
