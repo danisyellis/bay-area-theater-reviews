@@ -68,8 +68,7 @@ const find3MostRecent = () => {
 };
 
 const destroy = (reviewId) => {
-  console.log("review Id =",reviewId);
-  return db.none(`
+  return db.oneOrNone(`
     DELETE from reviews
     WHERE id = $1
   `, [reviewId])

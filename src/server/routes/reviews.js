@@ -29,10 +29,13 @@ router.post(`/albums/:albumId/reviews/new`, (req, res) => {
   });
 });
 
-router.get('/albums/:albumId/reviews/:reviewId', (req, res) => {
+router.delete('/albums/:albumId/reviews/:reviewId', (req, res) => {
   Reviews.destroy(req.params.reviewId)
-  .then(() => {
-    res.redirect("/");
+  .then((fetchResponse) => {
+    res.send('Review deleted sucessfully');
+  })
+  .catch((err) => {
+    res.status(500).send('Error deleting review: ', err);
   });
 });
 

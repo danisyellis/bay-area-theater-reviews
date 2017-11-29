@@ -7,9 +7,9 @@
 </div>
 
 <div>
-  <h1 id="review">Reviews</h1>
+  <h1 >Reviews</h1>
   <%reviews.forEach(function(review, i) {%>
-    <p>
+    <p id="reviews-<%=review.id%>">
       <%-review.title%>
       <%-formattedDates[i]%>
       <%-review.content%>
