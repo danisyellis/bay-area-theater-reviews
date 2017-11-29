@@ -10,13 +10,10 @@
 
     <div>
       <% reviews.forEach(function(review, i) { %>
-        <div>
-          <div>
-            <h4><%=album.title%></h4>
-            <h5><%=formattedDates[i]%></h5>
-          </div>
+        <div id="reviews-<%=review.id%>">
           <p>
             <%=review.content%>
+            <h5><%=formattedDates[i]%></h5>
             <%if (user.id === review.user_id) {%>
                   <img src="/trashCan.svg" height="20" class="delete" data-review-id='<%= review.id %>' data-album-id='<%= review.album_id %>'>
               <% }%>
