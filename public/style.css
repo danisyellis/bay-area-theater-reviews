@@ -24,13 +24,20 @@ hr {
   height: 300px;
 }
 
+.delete {
+  border: 1px solid red;
+  padding: .5px 3px .5px 3px;
+  margin-left: 10px;
+}
 
 .auth-form-labels {
   text-align: right;
   margin-right: 10px;
 }
 
-
+.album-reviews-delimeter {
+  width: 75%;
+}
 
 /*Reusable classes*/
 .center {

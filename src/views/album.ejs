@@ -7,19 +7,18 @@
       <h2>Reviews</h2>
       <a href="<%=album.id%>/reviews/new"><button>Add Review</button></a>
     </div>
-
     <div>
       <% reviews.forEach(function(review, i) { %>
-        <div id="reviews-<%=review.id%>">
-          <p>
-            <%=review.content%>
-            <h5><%=formattedDates[i]%></h5>
-            <%if (user.id === review.user_id) {%>
-                  <img src="/trashCan.svg" height="20" class="delete" data-review-id='<%= review.id %>' data-album-id='<%= review.album_id %>'>
-              <% }%>
-          </p>
-            <em>by <%= review.name %></em>
-        </div>
+        <p id="reviews-<%=review.id%>">
+          <%=review.content%>
+          <%if (user.id === review.user_id) {%>
+            <img src="/trashCan.svg" height="20" class="delete" data-review-id='<%= review.id %>' data-album-id='<%= review.album_id %>'>
+          <% }%>
+          <br />
+          <%=formattedDates[i]%>
+          <em>by <%= review.name %></em>
+          <hr class="album-reviews-delimeter">
+        </p>
       <%})%>
     </div>
 
