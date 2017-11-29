@@ -29,6 +29,7 @@ router.post(`/albums/:albumId/reviews/new`, (req, res) => {
   });
 });
 
+//TODO: add better auth 
 router.delete('/albums/:albumId/reviews/:reviewId', (req, res) => {
   Reviews.destroy(req.params.reviewId)
   .then((fetchResponse) => {
