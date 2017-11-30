@@ -19,13 +19,27 @@ html, body {
 hr {
   margin-bottom: 0;
 }
-.vinylPic {
+
+.headerPic {
   width: 100%;
   height: 300px;
+}
+.caption-text {
+  font-size: 10px;
+  float: right;
+  padding-right: 15px;
+}
+
+.show-title {
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 20px;
+  margin-top: 45px;
 }
 
 .delete {
   border: 1px solid red;
+  background-color: rgb(252, 212, 212);
   padding: .5px 3px .5px 3px;
   margin-left: 10px;
 }
@@ -37,6 +51,11 @@ hr {
 
 .album-reviews-delimeter {
   width: 75%;
+}
+
+.profile-reviews h1 {
+  color: purple;
+  margin-top: 60px;
 }
 
 /*Reusable classes*/

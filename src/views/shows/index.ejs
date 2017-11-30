@@ -1,0 +1,15 @@
+<%- include ../partials/layout.ejs %>
+
+<div class="left-column">
+  <h1>Shows</h1>
+  <div>
+    <% shows.forEach(function(show) { %>
+      <div>
+        <h5><a href="/albums/<%= show.id %>"><%= show.title %></a></h5>
+        <span><%= show.artist %></span>
+      </div>
+    <% }) %>
+  </div>
+</div>
+
+<%- include ../partials/footer.ejs %>

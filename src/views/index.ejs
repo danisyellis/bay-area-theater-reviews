@@ -1,11 +1,11 @@
 <%- include partials/layout.ejs %>
 
-  <img src="vinyl.jpeg" class="vinylPic"/>
+  <img src="times_square.jpg" class="headerPic" title='Times Square, New York - Photo: Curimedia | P H O T O G R A P H Y via Flickr, used under Creative Commons License (By 2.0)'/>
 
   <div class="section group">
   	<div class="col span_1_of_3">
       <div class="left-column">
-        <h1>Records</h1>
+        <h1>Shows</h1>
         <div>
           <% albums.forEach(function(album) { %>
             <div>
@@ -35,5 +35,6 @@
   	</div>
   </div>
 
+  <p class="caption-text">Photo: Times Square, New York -  <a href="https://www.flickr.com/photos/curimedia/17255848402" target="blank">Curimedia | P H O T O G R A P H Y via Flickr</a>, used under Creative Commons License (By 2.0)</p>
 
 <%- include partials/footer.ejs %>

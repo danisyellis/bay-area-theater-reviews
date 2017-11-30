@@ -2,18 +2,24 @@
 
 <div class="left-column">
   <h1><%-user.name%></h1>
-  <p><%-user.email%></p>
-  <p><%-user.date_joined%></p>
+  <p>Email: <%-user.email%></p>
+  <p>Member since: <%-user.date_joined%></p>
 </div>
 
-<div>
-  <h1 >Reviews</h1>
+<div class="left-column profile-reviews">
+  <h1 >Your Reviews</h1>
   <%reviews.forEach(function(review, i) {%>
     <p id="reviews-<%=review.id%>">
-      <%-review.title%>
-      <%-formattedDates[i]%>
-      <%-review.content%>
-      <img src="/trashCan.svg" height="20" class="delete" data-review-id='<%= review.id %>' data-album-id='<%= review.album_id %>'>
+      <p class="show-title">
+        <%-review.title%>
+      </p>
+      <p>
+        <%-review.content%>
+        <img src="/trashCan.svg" height="20" class="delete" data-review-id='<%= review.id %>' data-album-id='<%= review.album_id %>'>
+      </p>
+      <p>
+      Written on <%-formattedDates[i]%>
+      </p>
     </p>
   <%})%>
 </div>

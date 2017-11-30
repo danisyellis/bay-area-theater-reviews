@@ -5,6 +5,16 @@ const Reviews = require('../../models/reviews');
 const utils = require('../utils');
 
 
+router.get('/', (req,res) => {
+  db.getAlbums()
+  .then(shows => {
+    res.render('shows', {shows});
+  })
+  .catch(err => {
+    console.error("Error:", err);
+  });
+});
+
 router.get('/:albumId', (req, res) => {
   if(req.session.user) {
     res.locals.isLoggedIn = true;
