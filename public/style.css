@@ -30,6 +30,11 @@ hr {
   padding-right: 15px;
 }
 
+.authy-form-errors {
+  padding-left: 20px;
+  color: red;
+}
+
 .show-title {
   font-weight: bold;
   text-decoration: underline;
@@ -47,6 +52,20 @@ hr {
 .auth-form-labels {
   text-align: right;
   margin-right: 10px;
+}
+
+.new-show-form-labels {
+  color: purple;
+  display: block;
+  text-align: left;
+  margin-left: 30px;
+  font-size: 30px;
+}
+
+.new-show-form-button {
+  margin: 25px 0 0 30px;
+  height: 30px;
+  background-color: rgb(178, 139, 191);
 }
 
 .show-reviews-delimeter {

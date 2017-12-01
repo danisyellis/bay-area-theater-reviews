@@ -1,7 +1,13 @@
 <%- include ../partials/layout.ejs %>
   <div class = "center">
     <h1><%= show.title %></h1>
-    <em>at <%= show.theater %></em>
+    <h3><%= show.genre %></h3>
+    <em>at <%= show.venue %></em>
+    <h4><%= show.url %></h4>
+    <%if(formattedStartDate && formattedEndDate) {%>
+      <p><%= show.title %> opens on <%= formattedStartDate %> and closes on <%= formattedEndDate %>
+      </p>
+    <% } %>
 
     <div>
       <h2>Reviews</h2>

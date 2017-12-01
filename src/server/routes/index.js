@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../../models/db');
+const Shows = require('../../models/shows');
 const Reviews = require('../../models/reviews');
 const auth = require('./auth');
 const shows = require('./shows');
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
     res.locals.isLoggedIn = true;
     res.locals.user = req.session.user;
   }
-  db.getShows()
+  Shows.getShows()
   .then(shows => {
     Reviews.find3MostRecent()
     .then(reviews => {

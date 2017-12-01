@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../../models/db/index');
+const db = require('../../models/shows');
 const Reviews = require('../../models/reviews');
 
 router.get(`/shows/:showId/reviews/new`, (req, res) => {
