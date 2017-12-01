@@ -8,12 +8,12 @@ const getById = (id) => {
   return db.getById(id);
 };
 
-const getByAlbumId = (albumId) => {
-  return db.getByAlbumId(albumId);
+const getByShowId = (showId) => {
+  return db.getByShowId(showId);
 };
 
-const getByUserId = (albumId) => {
-  return db.getByUserId(albumId);
+const getByUserId = (userId) => {
+  return db.getByUserId(userId);
 };
 
 const find3MostRecent = () => {
@@ -27,7 +27,7 @@ const destroy = (reviewId) => {
 module.exports = {
   create,
   getById,
-  getByAlbumId,
+  getByShowId,
   getByUserId,
   find3MostRecent,
   destroy

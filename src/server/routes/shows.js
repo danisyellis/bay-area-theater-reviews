@@ -6,7 +6,7 @@ const utils = require('../utils');
 
 
 router.get('/', (req,res) => {
-  db.getAlbums()
+  db.getShows()
   .then(shows => {
     res.render('shows', {shows});
   })
@@ -15,18 +15,18 @@ router.get('/', (req,res) => {
   });
 });
 
-router.get('/:albumId', (req, res) => {
+router.get('/:showId', (req, res) => {
   if(req.session.user) {
     res.locals.isLoggedIn = true;
     res.locals.user = req.session.user;
   }
-  const albumId = req.params.albumId;
-  db.getAlbumById(albumId)
-  .then(album => {
-    Reviews.getByAlbumId(albumId)
+  const showId = req.params.showId;
+  db.getShowById(showId)
+  .then(show => {
+    Reviews.getByShowId(showId)
     .then(reviews => {
       const formattedDates = utils.shortenDatesInArray(reviews);
-      res.render('album', {album, reviews, formattedDates});
+      res.render('shows/display', {show, reviews, formattedDates});
     });
   })
   .catch(err => {console.error("Error:", err);});

@@ -2,9 +2,9 @@
 
 <div class="newReviewPage center">
 
-  <h1>New Review For "<%-album.title%>"</h1>
+  <h1>New Review For "<%-show.title%>"</h1>
 
-  <form action="/albums/<%= album.id %>/reviews/new" id="newReviewForm" method="post">
+  <form action="/shows/<%= show.id %>/reviews/new" id="newReviewForm" method="post">
       <textarea cols="60" rows ="10" name="newReview" form="newReviewForm" required autofocus></textarea>
      <div>
        <button type="submit" name="button"> Submit </button>

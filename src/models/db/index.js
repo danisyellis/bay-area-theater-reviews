@@ -12,20 +12,20 @@ db.connect()
     console.log('ERROR:', error.message || error);
 });
 
-function getAlbums() {
+function getShows() {
   return db.any(`
-    SELECT * FROM albums`)
+    SELECT * FROM shows`)
   .catch(err => {
     console.log("Error: ", err);
     throw err;
   });
 }
 
-function getAlbumById(albumId) {
+function getShowById(showId) {
   return db.oneOrNone(`
-    SELECT * FROM albums
+    SELECT * FROM shows
     WHERE id = $1
-  `, [albumId])
+  `, [showId])
   .catch(err => {
     console.log("Error: ", err);
     throw err;
@@ -35,7 +35,7 @@ function getAlbumById(albumId) {
 
 
 module.exports = {
-  getAlbums,
-  getAlbumById,
+  getShows,
+  getShowById,
   db
 };

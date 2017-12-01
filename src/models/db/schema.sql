@@ -1,7 +1,12 @@
-CREATE TABLE albums (
+CREATE TYPE category AS ENUM ('musical', 'play', 'improv', 'dance', 'concert', 'immersive', 'comedy', 'variety', 'opera', 'other');
+
+CREATE TABLE shows (
   id SERIAL primary key,
   title VARCHAR(255) NOT NULL,
-  artist VARCHAR(255) NOT NULL
+  theater VARCHAR(255) NOT NULL,
+  genre CATEGORY,
+  date_opens DATE,
+  date_closes DATE
 );
 
 DROP TABLE IF EXISTS users;
@@ -19,5 +24,5 @@ CREATE TABLE reviews(
   content text NOT NULL,
   date_created DATE NOT NULL DEFAULT CURRENT_DATE,
   user_id INTEGER REFERENCES users (id),
-  album_id INTEGER REFERENCES albums (id)
+  show_id INTEGER REFERENCES shows (id)
 );
