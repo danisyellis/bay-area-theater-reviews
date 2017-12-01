@@ -1,11 +1,11 @@
 const {db} = require('./index');
 
-const create = ((review, userId, albumId) => {
+const create = ((review, userId, showId) => {
   return db.oneOrNone(`
-    INSERT INTO reviews (content, user_id, album_id)
+    INSERT INTO reviews (content, user_id, show_id)
     VALUES ($1, $2, $3)
     RETURNING *
-  `, [review, userId, albumId])
+  `, [review, userId, showId])
   .catch(error => {
   console.error(error.message);
   throw error;
@@ -23,14 +23,14 @@ const getById = id => {
   });
 };
 
-const getByAlbumId = albumId => {
+const getByShowId = showId => {
   return db.any(`
     SELECT * FROM users
     JOIN reviews
     ON reviews.user_id = users.id
-    WHERE album_id = $1
+    WHERE show_id = $1
     ORDER BY reviews.id DESC
-  `, albumId)
+  `, showId)
   .catch(error => {
   console.error(error.message);
   throw error;
@@ -39,9 +39,9 @@ const getByAlbumId = albumId => {
 
 const getByUserId = userId => {
   return db.any(`
-    SELECT * FROM albums
+    SELECT * FROM shows
     JOIN reviews
-    ON reviews.album_id = albums.id
+    ON reviews.show_id = shows.id
     WHERE user_id = $1
     ORDER BY reviews.id DESC
   `, userId)
@@ -56,8 +56,8 @@ const find3MostRecent = () => {
     SELECT * FROM reviews
     JOIN users
       ON reviews.user_id = users.id
-    JOIN albums
-      ON reviews.album_id = albums.id
+    JOIN shows
+      ON reviews.show_id = shows.id
     ORDER BY reviews.id DESC
     LIMIT 3
   `)
@@ -81,7 +81,7 @@ const destroy = (reviewId) => {
 module.exports = {
   create,
   getById,
-  getByAlbumId,
+  getByShowId,
   getByUserId,
   find3MostRecent,
   destroy

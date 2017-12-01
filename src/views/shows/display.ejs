@@ -1,27 +1,27 @@
-<%- include ./partials/layout.ejs %>
+<%- include ../partials/layout.ejs %>
   <div class = "center">
-    <h1><%= album.title %></h1>
-    <em>by <%= album.artist %></em>
+    <h1><%= show.title %></h1>
+    <em>at <%= show.theater %></em>
 
     <div>
       <h2>Reviews</h2>
-      <a href="<%=album.id%>/reviews/new"><button>Add Review</button></a>
+      <a href="<%=show.id%>/reviews/new"><button>Add Review</button></a>
     </div>
     <div>
       <% reviews.forEach(function(review, i) { %>
         <p id="reviews-<%=review.id%>">
           <%=review.content%>
           <%if (user.id === review.user_id) {%>
-            <img src="/trashCan.svg" height="20" class="delete" data-review-id='<%= review.id %>' data-album-id='<%= review.album_id %>'>
+            <img src="/trashCan.svg" height="20" class="delete" data-review-id='<%= review.id %>' data-show-id='<%= review.show_id %>'>
           <% }%>
           <br />
           <%=formattedDates[i]%>
           <em>by <%= review.name %></em>
-          <hr class="album-reviews-delimeter">
+          <hr class="show-reviews-delimeter">
         </p>
       <%})%>
     </div>
 
   </div>
 
-<%- include ./partials/footer.ejs %>
+<%- include ../partials/footer.ejs %>

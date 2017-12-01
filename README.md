@@ -1,6 +1,6 @@
 # Vinyl
 
-A community for record enthusiasts to review their favorite albums.
+A community for theater enthusiasts in the Bay Area to review their favorite shows.
 
 ## Getting Started
 
@@ -15,7 +15,7 @@ Use the following commands to set up and seed your database:
 
 1. Create PostgreSQL database `vinyl`: `$ npm run db:create`
 1. Set up database tables from `schema.sql`: `$ npm run db:schema`
-1. Load seed data from `albums.sql`: `$ npm run db:seed`
+1. Load seed data from `shows.sql`: `$ npm run db:seed`
 1. Create a table to store session data: `$npm run db:session:setup`
 
 After this initial setup, you can use the `$npm run db:reset` command to reset your database.

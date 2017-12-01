@@ -3,11 +3,11 @@ const router = express.Router();
 const db = require('../../models/db/index');
 const Reviews = require('../../models/reviews');
 
-router.get(`/albums/:albumId/reviews/new`, (req, res) => {
-  const albumId = req.params.albumId;
-  db.getAlbumById(albumId)
-  .then(album => {
-    res.render('reviews/new', {album});
+router.get(`/shows/:showId/reviews/new`, (req, res) => {
+  const showId = req.params.showId;
+  db.getShowById(showId)
+  .then(show => {
+    res.render('reviews/new', {show});
   })
   .catch(error => {
     res.status(500).render('common/error', {error});
@@ -15,13 +15,13 @@ router.get(`/albums/:albumId/reviews/new`, (req, res) => {
   });
 });
 
-router.post(`/albums/:albumId/reviews/new`, (req, res) => {
-  const albumId = req.params.albumId;
+router.post(`/shows/:showId/reviews/new`, (req, res) => {
+  const showId = req.params.showId;
   const review = req.body.newReview;
   const userId = res.locals.user.id;
-  Reviews.create(review, userId, albumId)
+  Reviews.create(review, userId, showId)
   .then(() => {
-    res.redirect(`/albums/${albumId}`);
+    res.redirect(`/shows/${showId}`);
   })
   .catch(error => {
     res.status(500).render('common/error', {error});
@@ -29,8 +29,8 @@ router.post(`/albums/:albumId/reviews/new`, (req, res) => {
   });
 });
 
-//TODO: add better auth 
-router.delete('/albums/:albumId/reviews/:reviewId', (req, res) => {
+//TODO: add better auth
+router.delete('/shows/:showId/reviews/:reviewId', (req, res) => {
   Reviews.destroy(req.params.reviewId)
   .then((fetchResponse) => {
     res.send('Review deleted sucessfully');

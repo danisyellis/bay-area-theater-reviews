@@ -6,7 +6,7 @@
   <p>Member since: <%-user.date_joined%></p>
 </div>
 
-<div class="left-column profile-reviews">
+<div class="center profile-reviews">
   <h1 >Your Reviews</h1>
   <%reviews.forEach(function(review, i) {%>
     <p id="reviews-<%=review.id%>">
@@ -15,11 +15,12 @@
       </p>
       <p>
         <%-review.content%>
-        <img src="/trashCan.svg" height="20" class="delete" data-review-id='<%= review.id %>' data-album-id='<%= review.album_id %>'>
+        <img src="/trashCan.svg" height="20" class="delete" data-review-id='<%= review.id %>' data-show-id='<%= review.show_id %>'>
       </p>
       <p>
       Written on <%-formattedDates[i]%>
       </p>
+      <hr class="show-reviews-delimeter">
     </p>
   <%})%>
 </div>

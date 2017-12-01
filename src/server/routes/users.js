@@ -12,7 +12,7 @@ router.get('/:id', (req, res) => {
     Reviews.getByUserId(id)
     .then(reviews => {
       const formattedDates = utils.shortenDatesInArray(reviews);
-      res.render('users/show', {user, reviews, formattedDates});
+      res.render('users/display', {user, reviews, formattedDates});
     })
     .catch(error => {
       res.status(500).render('common/error', {error});
