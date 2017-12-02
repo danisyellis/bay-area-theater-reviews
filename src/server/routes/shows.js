@@ -10,6 +10,7 @@ router.get('/', (req,res) => {
   .then(shows => {
     if(req.session.user) {
       res.locals.isLoggedIn = true;
+      res.locals.user = req.session.user;
     }
     res.render('shows', {shows});
   })
@@ -21,6 +22,7 @@ router.get('/', (req,res) => {
 router.get('/new', (req, res) => {
   if(req.session.user) {
     res.locals.isLoggedIn = true;
+    res.locals.user = req.session.user;
     res.render('shows/new');
   }
   else {
