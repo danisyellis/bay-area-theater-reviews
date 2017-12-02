@@ -4,6 +4,37 @@
   <h1><%-user.name%></h1>
   <p>Email: <%-user.email%></p>
   <p>Member since: <%-user.date_joined%></p>
+  <button class="edit-profile-button">Edit Profile</button>
+</div>
+
+<div class="edit-profile-modal">
+  <div class="edit-profile-modal-content">
+    <span class="close-modal"> X </span>
+    <%# &times%>
+    <form action=`/users/${user.id}?_method=PUT`, method="POST">
+      <div>
+        <p>
+          Name:
+          <%if(user.name === null) {%>
+            <input type="text" name="name" />
+          <% } else { %>
+            <input type="text" name="name" value = <%-user.name%>>
+          <% } %>
+        </p>
+      </div>
+      <div>
+        <p>
+          Email:
+          <%if(user.email === null) {%>
+            <input type="text" name="email" />
+          <% } else { %>
+            <input type="text" name="email" value = <%-user.email%>>
+          <% } %>
+        </p>
+      </div>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
 </div>
 
 <div class="center profile-reviews">
@@ -24,5 +55,7 @@
     </p>
   <%})%>
 </div>
+
+  <script type="text/javascript" src="/scripts/users.js"></script>
 
 <%- include ../partials/footer.ejs %>
