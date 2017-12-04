@@ -1,14 +1,5 @@
 CREATE TYPE category AS ENUM ('musical', 'play', 'improv', 'dance', 'concert', 'immersive', 'comedy', 'variety', 'opera', 'other');
 
-CREATE TABLE shows (
-  id SERIAL primary key,
-  title VARCHAR(255) NOT NULL,
-  theater VARCHAR(255) NOT NULL,
-  genre CATEGORY,
-  date_opens DATE,
-  date_closes DATE
-);
-
 DROP TABLE IF EXISTS users;
 CREATE TABLE users(
   id serial primary key,
@@ -16,6 +7,17 @@ CREATE TABLE users(
   email varchar(100) NOT NULL UNIQUE,
   password varchar(255) NOT NULL,
   date_joined DATE NOT NULL DEFAULT CURRENT_DATE
+);
+
+CREATE TABLE shows (
+  id SERIAL primary key,
+  title VARCHAR(255) NOT NULL,
+  venue VARCHAR(255) NOT NULL,
+  genre CATEGORY,
+  date_opens DATE,
+  date_closes DATE,
+  url VARCHAR(255),
+  created_by_user_id INTEGER REFERENCES users (id)
 );
 
 DROP TABLE IF EXISTS reviews;

@@ -1,5 +1,5 @@
 INSERT INTO
-  shows (title, theater, genre)
+  shows (title, venue, genre)
 VALUES
   ('Pride and Prejudice Project', 'The Garage', 'play'),
   ('Hamilton', 'SHN', 'musical'),

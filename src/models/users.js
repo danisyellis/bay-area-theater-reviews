@@ -12,8 +12,13 @@ const getByEmail = (email) => {
   return db.getByEmail(email);
 };
 
+const updateProfile = (id, name, email) => {
+  return db.updateProfile(id, name, email);
+};
+
 module.exports = {
   create,
   getById,
-  getByEmail
+  getByEmail,
+  updateProfile
 };

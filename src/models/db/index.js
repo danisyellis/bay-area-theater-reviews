@@ -12,30 +12,6 @@ db.connect()
     console.log('ERROR:', error.message || error);
 });
 
-function getShows() {
-  return db.any(`
-    SELECT * FROM shows`)
-  .catch(err => {
-    console.log("Error: ", err);
-    throw err;
-  });
-}
-
-function getShowById(showId) {
-  return db.oneOrNone(`
-    SELECT * FROM shows
-    WHERE id = $1
-  `, [showId])
-  .catch(err => {
-    console.log("Error: ", err);
-    throw err;
-  });
-}
-
-
-
 module.exports = {
-  getShows,
-  getShowById,
   db
 };

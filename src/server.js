@@ -2,6 +2,7 @@ const path = require('path');
 const morgan = require('morgan');
 const express = require('express');
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 require('dotenv').config();
 const session = require('express-session');
 const pgSession = require('connect-pg-simple')(session);
@@ -18,7 +19,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
-
+app.use(methodOverride('_method'));
 app.use((req, res, next) => {
   //res.locals.query = "";   only need this if I implement search using the variable query
   res.locals.isLoggedIn = false;

@@ -3,6 +3,7 @@
   <span class="header-right">
     <a href='/shows'>Shows</a>
     <% if(isLoggedIn) { %>
+      <a href='/shows/new'>Add show</a>
       <a href='/users/<%- user.id %>'>Profile</a>
       <a href='/signout'>Sign out</a>
     <% } else { %>

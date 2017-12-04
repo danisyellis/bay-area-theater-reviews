@@ -1,0 +1,52 @@
+<%- include ../partials/layout.ejs %>
+
+<div class="newShowPage">
+
+  <h1 class="center">Add a new show</h1>
+
+  <form action="/shows/new" id="newShowForm" method="post">
+    <pre class="new-show-form-errors"></pre>
+        <label class="new-show-form-labels">
+          <span>Name of show: </span>
+          <input type="text" name="title" form="newShowForm" required autofocus/>
+        </label>
+        <label class="new-show-form-labels">
+          <span>Venue: </span>
+          <input type="text" name="venue" />
+        </label>
+        <label class="new-show-form-labels">
+          <span>Genre: </span>
+          <select name="genre">
+            <option value="musical"> Musical</option>
+            <option value="play"> Play</option>
+            <option value="immersive"> Immersive</option>
+            <option value="improv"> Improv</option>
+            <option value="dance"> Dance</option>
+            <option value="comedy"> Comedy</option>
+            <option value="opera"> Opera</option>
+            <option value="concert"> Concert</option>
+            <option value="variety"> Variety</option>
+            <option value="other"> Other</option>
+          </select>
+        </label>
+        <label class="new-show-form-labels">
+          <% var now = Date.now() %>
+          <span>Opening Day: </span>
+          <input type="date" name="date_opens" min="<%=now%>"/>
+        </label>
+        <label class="new-show-form-labels">
+          <span>Closing Day: </span>
+          <input type="date" name="date_closes" />
+        </label>
+        <label class="new-show-form-labels">
+          <span>Website: </span>
+          <input type="url" name="url" />
+        </label>
+    <div>
+      <button class="new-show-form-button" type="submit" name="button"> Submit </button>
+    </div>
+  </form>
+
+</div>
+
+<%- include ../partials/footer.ejs %>
