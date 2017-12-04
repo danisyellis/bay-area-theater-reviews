@@ -9,9 +9,8 @@
 
 <div class="edit-profile-modal">
   <div class="edit-profile-modal-content">
-    <span class="close-modal"> X </span>
-    <%# &times%>
-    <form action=`/users/${user.id}?_method=PUT`, method="POST">
+    <span class="close-modal"> &times; </span>
+    <form action="/users/<%=user.id%>?_method=PUT", method="POST">
       <div>
         <p>
           Name:

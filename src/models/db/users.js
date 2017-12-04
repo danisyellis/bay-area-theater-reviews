@@ -34,8 +34,21 @@ const getByEmail = (email) => {
   });
 };
 
+const updateProfile = (id, name, email) => {
+  return db.oneOrNone(`
+    UPDATE users
+    SET name=$2, email=$3
+    WHERE id=$1
+    `, [id, name, email])
+    .catch(error => {
+      console.error(error.message);
+      throw error;
+    });
+};
+
 module.exports = {
   create,
   getById,
-  getByEmail
+  getByEmail,
+  updateProfile
 };

@@ -21,4 +21,15 @@ router.get('/:id', (req, res) => {
   });
 });
 
+router.put('/:id', (req, res) => {
+  const id = req.params.id;
+  console.log("the id is", id);
+  const name = req.body.name;
+  const email = req.body.email;
+  Users.updateProfile(id, name, email)
+  .then(() => {
+    res.redirect(`/users/${id}`);
+  });
+});
+
 module.exports = router;
