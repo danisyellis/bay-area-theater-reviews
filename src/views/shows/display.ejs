@@ -1,17 +1,17 @@
 <%- include ../partials/layout.ejs %>
   <div class = "center">
     <h1><%= show.title %></h1>
-    <h3><%= show.genre %></h3>
-    <em>at <%= show.venue %></em>
-    <h4><%= show.url %></h4>
+    <em class="genre"><%= show.genre %></em>
     <%if(formattedStartDate && formattedEndDate) {%>
       <p><%= show.title %> opens on <%= formattedStartDate %> and closes on <%= formattedEndDate %>
       </p>
     <% } %>
+    <h3>See the show at: <a href=<%= show.url %> target="_blank"><%= show.venue %></a></h3>
+
 
     <div>
-      <h2>Reviews</h2>
-      <a href="<%=show.id%>/reviews/new"><button>Add Review</button></a>
+      <h2 class="purple-header">Reviews</h2>
+      <a href="<%=show.id%>/reviews/new"><button class="light-purple-button">Add Review</button></a>
     </div>
     <div>
       <% reviews.forEach(function(review, i) { %>
