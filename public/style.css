@@ -72,6 +72,11 @@ hr {
   width: 75%;
 }
 
+.genre {
+  font-size: 20px;
+  color: purple;
+}
+
 .profile-reviews h1 {
   color: purple;
   margin-top: 60px;
@@ -86,6 +91,15 @@ hr {
 
 .left-column {
   padding-left: 20px;
+}
+
+.purple-header {
+  color: purple;
+  margin-top: 60px;
+}
+
+.light-purple-button {
+  background-color: rgba(178, 139, 191, .4);
 }
 
 /* The Modal (background) */
