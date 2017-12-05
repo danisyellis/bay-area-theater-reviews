@@ -1,9 +1,11 @@
+/* Replace with your SQL commands */
+
 CREATE TYPE category AS ENUM ('musical', 'play', 'improv', 'dance', 'concert', 'immersive', 'comedy', 'variety', 'opera', 'other');
 
 DROP TABLE IF EXISTS users;
 CREATE TABLE users(
   id serial primary key,
-  name varchar(255) NOT NULL,
+  name varchar(255) NOT NULL UNIQUE,
   email varchar(100) NOT NULL UNIQUE,
   password varchar(255) NOT NULL,
   date_joined DATE NOT NULL DEFAULT CURRENT_DATE
@@ -28,3 +30,11 @@ CREATE TABLE reviews(
   user_id INTEGER REFERENCES users (id),
   show_id INTEGER REFERENCES shows (id)
 );
+
+CREATE TABLE "session" (
+  "sid" varchar NOT NULL COLLATE "default",
+	"sess" json NOT NULL,
+	"expire" timestamp(6) NOT NULL
+)
+WITH (OIDS=FALSE);
+ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;

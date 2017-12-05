@@ -1,4 +1,4 @@
-# Vinyl
+# Bay-Area-Theater-Reviews
 
 A community for theater enthusiasts in the Bay Area to review their favorite shows.
 
