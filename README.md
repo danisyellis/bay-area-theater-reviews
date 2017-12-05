@@ -19,3 +19,6 @@ Use the following commands to set up and seed your database:
 1. Create a table to store session data: `$npm run db:session:setup`
 
 After this initial setup, you can use the `$npm run db:reset` command to reset your database.
+
+
+See the site live at https://bayareatheaterreviews.herokuapp.com/
