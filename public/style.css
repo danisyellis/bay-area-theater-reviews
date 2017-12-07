@@ -35,6 +35,10 @@ hr {
   color: red;
 }
 
+.signup-h {
+  margin: 10px 40px 0 40px;
+}
+
 .show-title {
   font-weight: bold;
   text-decoration: underline;
