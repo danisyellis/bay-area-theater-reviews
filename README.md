@@ -13,12 +13,9 @@ Create a .env file and put into it:
 
 Use the following commands to set up and seed your database:
 
-1. Create PostgreSQL database `vinyl`: `$ npm run db:create`
-1. Set up database tables from `schema.sql`: `$ npm run db:schema`
-1. Load seed data from `shows.sql`: `$ npm run db:seed`
-1. Create a table to store session data: `$npm run db:session:setup`
-
-After this initial setup, you can use the `$npm run db:reset` command to reset your database.
+1. Create PostgreSQL database called theater_dev by running the command `npm run db:create`
+1. Set up database tables by running a migration: `npm run db:migrate`
+1. You can also load some really basic seed data by running `npm run db:seedShows`
 
 
 See the site live at https://bayareatheaterreviews.herokuapp.com/
