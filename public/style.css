@@ -2,10 +2,12 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100vw;
+  font-size: 1.15em;
 }
 
 .header {
   margin: 15px;
+  font-size: 1.1em;
 }
 .header a {
   text-decoration: none;
@@ -22,7 +24,7 @@ hr {
 
 .headerPic {
   width: 100%;
-  height: 300px;
+  height: 375px;
 }
 .gh-issues-link {
   margin: 70px 0 30px 20px;
